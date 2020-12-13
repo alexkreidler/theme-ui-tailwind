@@ -1,13 +1,23 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [
+  "presets": [
     [
-      "@babel/plugin-transform-react-jsx",
+      "next/babel",
       {
-        "throwIfNamespace": false, // defaults to true
-        "runtime": "automatic", // defaults to classic
-        "importSource": "theme-ui" // defaults to react
+        "preset-react": {
+          "runtime": "automatic",
+          "importSource": "@emotion/react"
+        }
       }
     ]
   ]
+  // "plugins": [
+  //   [
+  //     "@babel/plugin-transform-react-jsx",
+  //     {
+  //       "throwIfNamespace": false, // defaults to true
+  //       "runtime": "automatic", // defaults to classic
+  //       "importSource": "theme-ui" // defaults to react
+  //     }
+  //   ]
+  // ]
 }

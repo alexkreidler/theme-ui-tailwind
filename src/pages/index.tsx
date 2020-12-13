@@ -74,6 +74,7 @@ const demoContent = demos
     </Box>
   ));
 
+const appName = "Theme UI and TailwindCSS Demo";
 const Home: React.FC = () => {
   const [container, setContainer] = useState(true);
   const [grid, setGrid] = useState(false);
@@ -93,7 +94,7 @@ const Home: React.FC = () => {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>{appName}</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -102,7 +103,7 @@ const Home: React.FC = () => {
         />
       </Head>
       <Container sx={{ px: 4, pt: 4 }}>
-        <Heading sx={{ pb: 3 }}>Demo Components</Heading>
+        <Heading sx={{ pb: 3 }}>{appName}</Heading>
         <Text>
           This is a demo of some{" "}
           <Link href="https://theme-ui.com/components">
