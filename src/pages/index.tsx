@@ -9,8 +9,10 @@ import {
   Close,
   Container,
   Grid,
+  Text,
   Heading,
   Message,
+  Link,
 } from "theme-ui";
 import { NavBar } from "components/NavBar";
 import { DemoForm } from "components/DemoForm";
@@ -71,6 +73,23 @@ const Home: React.FC = () => (
     </Head>
     <Box p={4}>
       <Heading sx={{ pb: 3 }}>Demo Components</Heading>
+      <Text>
+        This is a demo of some{" "}
+        <Link href="https://theme-ui.com/components">Theme UI components</Link>{" "}
+        using a{" "}
+        <Link href="https://github.com/system-ui/theme-ui/pull/1243">
+          TailwindCSS Theme
+        </Link>
+        . It also uses the new Babel/react{" "}
+        <Link href="https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html">
+          automatic JSX runtime feature
+        </Link>
+        , which is{" "}
+        <Link href="https://github.com/system-ui/theme-ui/blob/develop/CHANGELOG.md#v050-alpha1-2020-11-26">
+          new
+        </Link>{" "}
+        to Theme UI.
+      </Text>
       {demos
         .filter((d) => !d.hide)
         .map((d) => (
