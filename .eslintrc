@@ -33,7 +33,7 @@
         "jsx": "never"
       }
     ],
-    "quotes": ["error", "backtick"]
+    "quotes": ["error", "double"]
   },
   "overrides": [
     {
@@ -57,7 +57,7 @@
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/quotes": [
           2,
-          "backtick",
+          "double",
           {
             "avoidEscape": true
           }

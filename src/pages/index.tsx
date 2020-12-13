@@ -1,188 +1,89 @@
-import React from 'react';
-import Head from 'next/head';
+import React from "react";
+import Head from "next/head";
+import { ImageCard } from "components/ImageCard";
+import {
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Close,
+  Container,
+  Grid,
+  Heading,
+  Message,
+} from "theme-ui";
+import { NavBar } from "components/NavBar";
+import { DemoForm } from "components/DemoForm";
 
-import Title from '@/components/Title';
+const demos = [
+  {
+    name: "Image Card",
+    c: (
+      <ImageCard
+        title="Card Demo"
+        description="lorem"
+        image="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048"
+      />
+    ),
+  },
+  { name: "Button", c: <Button>Hey there</Button> },
+  {
+    name: "Message",
+    c: <Message>This is just a message for someone to read</Message>,
+  },
+  { name: "Navigation Bar", c: <NavBar>Hi</NavBar> },
+  { name: "Demo Form", hide: true, c: <DemoForm>Hi</DemoForm> },
+  {
+    name: "Badge",
+    c: (
+      <Heading>
+        Example
+        <Badge variant="accent" ml={2}>
+          New
+        </Badge>
+        <Badge variant="outline" ml={1}>
+          Cool
+        </Badge>
+      </Heading>
+    ),
+  },
+  {
+    name: "Alert",
+    c: (
+      <Alert>
+        Beep boop, this is an alert!
+        <Close ml="auto" mr={-2} />
+      </Alert>
+    ),
+  },
+];
 
 const Home: React.FC = () => (
   <div className="container">
     <Head>
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
     </Head>
-
-    <main>
-      <Title />
-
-      <p className="description">
-        Get started by editing <code>pages/index.js</code>
-      </p>
-
-      <p className="description">This is not an official starter!</p>
-
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
-          </p>
-        </a>
-      </div>
-    </main>
-
-    <footer>
-      <a href="https://zeit.co" target="_blank" rel="noopener noreferrer">
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-      </a>
-    </footer>
-
-    <style jsx>
-      {`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}
-    </style>
-
-    <style jsx global>
-      {`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}
-    </style>
+    <Box p={4}>
+      <Heading sx={{ pb: 3 }}>Demo Components</Heading>
+      {demos
+        .filter((d) => !d.hide)
+        .map((d) => (
+          <Box key={d.name} my={4}>
+            <Heading as="h3" sx={{ pb: 2 }}>
+              {d.name}
+            </Heading>
+            {d.c}
+          </Box>
+        ))}
+      {/* <Grid gap={4} columns="1fr 1fr">
+      </Grid> */}
+    </Box>
   </div>
 );
 
